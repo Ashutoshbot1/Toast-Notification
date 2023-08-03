@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f7edff;
+}
+
+.buttons{
+    margin: 5rem;
+}
+
+.buttons button{
+    background: #333;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    width: 12rem;
+    height: 4rem;
+    margin: .5rem;
+    cursor: pointer;
+}
+
+#toast-box{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 2rem; 
+
+}
+
+.toast{
+    width: 40rem;
+    height: 8rem;
+    background: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 2rem rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateX(100%);
+    animation: moveleft .5s linear forwards;
+}
+
+@keyframes moveleft {
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.toast i{
+    margin: 0 2rem;
+    font-size: 3.5rem;
+    color: green;
+}
+
+.toast.error i{
+    color: red;
+}
+.toast.invalid i{
+    color: orange;
+}
+
+.toast::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .5rem;
+    background: green;
+    animation: anim 5s linear forwards;
+}
+
+@keyframes anim {
+    100%{
+        width: 0;
+    }
+}
+
+.toast.error::after{
+    background: red;
+
+}
+
+.toast.invalid::after{
+    background: orange;
+
+}
